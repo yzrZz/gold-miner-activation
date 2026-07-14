@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: gold-miner-activation
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: ACTIVATE_SECRET
+        value: GM_BAND10_2026_PRIVATE_KEY
+      - key: ADMIN_TOKEN
+        value: admin-dev-token
+    disk:
+      name: activation-data
+      mountPath: /var/data
+      sizeGB: 1
+
